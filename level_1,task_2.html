@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Project</title>
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem 2rem;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+   
+    .hero {
+      background: url('https://picsum.photos/1920/1080?blur=3') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      margin-bottom: 2rem;
+    }
+
+    #cta-btn {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #cta-btn:hover {
+      background: #d35400;
+    }
+
+   
+    .features {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .feature-container {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .feature-box {
+      flex: 1 1 250px;
+      background: #ecf0f1;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+   
+    .about {
+      padding: 3rem 2rem;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    
+    .contact {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .contact button:hover {
+      background: #219150;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Codsoft Intership</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Welcome to My Landing Page</h2>
+      <p>Create stunning web pages with HTML, CSS, and a touch of JavaScript.</p>
+      <button id="cta-btn">Get Started</button>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Features</h2>
+    <div class="feature-container">
+      <div class="feature-box">
+        <h3>Easy to Build</h3>
+        <p>Perfect for beginners learning structure and styling.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Customizable</h3>
+        <p>Change colors, fonts, and layout to unleash creativity.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Responsive</h3>
+        <p>Designed to look good on desktops, tablets, and phones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About This Project</h2>
+    <p>
+      A landing page is an ideal web development project for beginners. 
+      It requires basic knowledge of HTML and CSS. Through this project, 
+      you'll learn to create columns, divide sections, arrange items, and 
+      add headers and footers.
+    </p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 MyLanding. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    document.getElementById('cta-btn').addEventListener('click', () => {
+      alert('Thanks for getting started!');
+    });
+  </script>
+</body>
+</html>

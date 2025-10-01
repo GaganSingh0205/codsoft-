@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gagan Singh - Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800&family=Audiowide&family=Michroma&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .stylish-font {
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .hero-font {
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .tech-font {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .futuristic-font {
+            font-family: 'Audiowide', cursive;
+        }
+        
+        .cyber-font {
+            font-family: 'Michroma', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .skill-bar {
+            transition: width 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px) rotateX(10deg);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+        }
+        
+        .typing-animation {
+            border-right: 3px solid #ff6b6b;
+            animation: blink 1.2s infinite, colorChange 3s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: #ff6b6b; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        @keyframes colorChange {
+            0% { color: #ff6b6b; }
+            25% { color: #4ecdc4; }
+            50% { color: #45b7d1; }
+            75% { color: #96ceb4; }
+            100% { color: #ff6b6b; }
+        }
+        
+        /* Hero Section Animations */
+        .hero-title {
+            opacity: 0;
+            animation: heroTitleSlide 1.5s ease-out 0.5s forwards;
+        }
+        
+        .hero-word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px) rotateX(90deg);
+            animation: wordSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        
+        .hero-word:nth-child(1) { animation-delay: 0.2s; }
+        .hero-word:nth-child(2) { animation-delay: 0.4s; }
+        .hero-word:nth-child(3) { animation-delay: 0.6s; }
+        
+        .rotating-text {
+            display: inline-block;
+            animation: rotateText 4s ease-in-out infinite;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rotateText 4s ease-in-out infinite, gradientShift 3s ease infinite;
+        }
+        
+        .spinning-name {
+            display: inline-block;
+            animation: spinName 6s linear infinite;
+            transform-origin: center;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: spinName 6s linear infinite, gradientShift 4s ease infinite;
+        }
+        
+        .mega-animated-name {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0080, #00ff80, #8000ff, #ff8000, #0080ff, #ff0040);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: megaNameAnimation 3s ease-in-out infinite, rainbowShift 2s linear infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            filter: drop-shadow(0 0 10px rgba(255, 0, 128, 0.7));
+            position: relative;
+        }
+        
+        .mega-animated-name::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, #ff0080, #00ff80, #8000ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowPulse 1.5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes megaNameAnimation {
+            0%, 100% { 
+                transform: scale(1) rotateY(0deg) rotateX(0deg);
+            }
+            25% { 
+                transform: scale(1.1) rotateY(15deg) rotateX(5deg);
+            }
+            50% { 
+                transform: scale(1.2) rotateY(0deg) rotateX(10deg);
+            }
+            75% { 
+                transform: scale(1.1) rotateY(-15deg) rotateX(5deg);
+            }
+        }
+        
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes glowPulse {
+            0% { 
+                opacity: 0.3;
+                transform: scale(1.05);
+            }
+            100% { 
+                opacity: 0.8;
+                transform: scale(1.15);
+            }
+        }
+        
+        .wobble-text {
+            display: inline-block;
+            animation: wobbleText 3s ease-in-out infinite;
+        }
+        
+        .flip-text {
+            display: inline-block;
+            animation: flipText 5s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+            animation: glitchMove 2s ease-in-out infinite;
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch-text::before {
+            animation: glitch1 2s infinite;
+            color: #ff6b6b;
+            z-index: -1;
+        }
+        
+        .glitch-text::after {
+            animation: glitch2 2s infinite;
+            color: #4ecdc4;
+            z-index: -2;
+        }
+        
+        @keyframes rotateText {
+            0%, 100% { transform: rotateY(0deg) rotateX(0deg) scale(1); }
+            25% { transform: rotateY(90deg) rotateX(15deg) scale(1.1); }
+            50% { transform: rotateY(180deg) rotateX(0deg) scale(1.2); }
+            75% { transform: rotateY(270deg) rotateX(-15deg) scale(1.1); }
+        }
+        
+        @keyframes spinName {
+            0% { transform: rotateZ(0deg) rotateY(0deg) scale(1); }
+            25% { transform: rotateZ(90deg) rotateY(90deg) scale(1.1); }
+            50% { transform: rotateZ(180deg) rotateY(180deg) scale(1.2); }
+            75% { transform: rotateZ(270deg) rotateY(270deg) scale(1.1); }
+            100% { transform: rotateZ(360deg) rotateY(360deg) scale(1); }
+        }
+        
+        @keyframes wobbleText {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.05); }
+            50% { transform: rotate(0deg) scale(1.1); }
+            75% { transform: rotate(-5deg) scale(1.05); }
+        }
+        
+        @keyframes flipText {
+            0%, 100% { transform: rotateX(0deg) rotateY(0deg); }
+            25% { transform: rotateX(180deg) rotateY(45deg); }
+            50% { transform: rotateX(360deg) rotateY(90deg); }
+            75% { transform: rotateX(180deg) rotateY(135deg); }
+        }
+        
+        @keyframes glitchMove {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        @keyframes glitch1 {
+            0%, 100% { transform: translate(0); opacity: 1; }
+            20% { transform: translate(-2px, 2px); opacity: 0.8; }
+            40% { transform: translate(-2px, -2px); opacity: 0.6; }
+            60% { transform: translate(2px, 2px); opacity: 0.8; }
+            80% { transform: translate(2px, -2px); opacity: 0.6; }
+        }
+        
+        @keyframes glitch2 {
+            0%, 100% { transform: translate(0); opacity: 1; }
+            20% { transform: translate(2px, -2px); opacity: 0.7; }
+            40% { transform: translate(2px, 2px); opacity: 0.5; }
+            60% { transform: translate(-2px, -2px); opacity: 0.7; }
+            80% { transform: translate(-2px, 2px); opacity: 0.5; }
+        }
+        
+        @keyframes heroTitleSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px) scale(0.8) rotateY(-45deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+            }
+        }
+        
+        @keyframes wordSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) rotateX(90deg) scale(0.8);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(-10px) rotateX(45deg) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg) scale(1);
+            }
+        }
+        
+        .hero-subtitle {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: subtitleSlide 1.2s ease-out 1.2s forwards;
+        }
+        
+        @keyframes subtitleSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 0.9;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .hero-buttons {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: buttonsSlide 1s ease-out 1.8s forwards;
+        }
+        
+        @keyframes buttonsSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .hero-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .hero-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .hero-button:hover::before {
+            left: 100%;
+        }
+        
+        .hero-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .dynamic-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dynamic-text::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            top: 0;
+            left: -100%;
+            animation: textShimmer 3s infinite;
+        }
+        
+        @keyframes textShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .floating-words {
+            animation: floatingWords 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatingWords {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(1deg); }
+            50% { transform: translateY(-15px) rotate(0deg); }
+            75% { transform: translateY(-8px) rotate(-1deg); }
+        }
+        
+        .text-wave {
+            animation: textWave 2s ease-in-out infinite;
+        }
+        
+        .text-wave:nth-child(1) { animation-delay: 0s; }
+        .text-wave:nth-child(2) { animation-delay: 0.1s; }
+        .text-wave:nth-child(3) { animation-delay: 0.2s; }
+        .text-wave:nth-child(4) { animation-delay: 0.3s; }
+        .text-wave:nth-child(5) { animation-delay: 0.4s; }
+        
+        @keyframes textWave {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 107, 107, 0.6); }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.05) rotate(2deg); }
+            70% { transform: scale(0.9) rotate(-1deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        /* Enhanced Navigation Animations */
+        .nav-link {
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            padding: 10px 18px;
+            border-radius: 12px;
+            margin: 0 2px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(78, 205, 196, 0.15) 50%, rgba(69, 183, 209, 0.15) 100%);
+            transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 3px;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            color: #ff6b6b;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+        }
+        
+        .nav-link:hover::before {
+            left: 0;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 85%;
+        }
+        
+        .nav-link.active {
+            color: #4ecdc4;
+            background: rgba(78, 205, 196, 0.1);
+        }
+        
+        .nav-text {
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover .nav-text {
+            animation: textSlideWave 0.8s ease;
+        }
+        
+        @keyframes textSlideWave {
+            0% { transform: translateX(0) translateY(0) scale(1); }
+            25% { transform: translateX(2px) translateY(-1px) scale(1.02); }
+            50% { transform: translateX(4px) translateY(-2px) scale(1.05); }
+            75% { transform: translateX(2px) translateY(-1px) scale(1.02); }
+            100% { transform: translateX(0) translateY(0) scale(1.05); }
+        }
+        
+        .logo-text {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
+            background-size: 300% 300%;
+            animation: logoShift 4s ease infinite;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .logo-text:hover {
+            transform: scale(1.15) rotate(8deg);
+            animation: logoShift 1s ease infinite, logoBounce 0.6s ease;
+        }
+        
+        @keyframes logoShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes logoBounce {
+            0%, 100% { transform: scale(1.15) rotate(8deg); }
+            50% { transform: scale(1.25) rotate(-5deg); }
+        }
+        
+        .mobile-nav-link {
+            transition: all 0.4s ease;
+            padding: 12px 0;
+            border-left: 4px solid transparent;
+            padding-left: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .mobile-nav-link:hover {
+            border-left-color: #ff6b6b;
+            padding-left: 28px;
+            color: #ff6b6b;
+            transform: translateX(8px);
+        }
+        
+        .mobile-nav-link:hover::before {
+            width: 100%;
+        }
+        
+        /* Navigation container animations */
+        .nav-container {
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Hero Image Animations */
+        .hero-image {
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        
+        .floating-tech {
+            animation: floatingTech 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatingTech {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+        
+        .cursor-blink {
+            animation: cursorBlink 1.5s infinite;
+        }
+        
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Enhanced Education Section Styles */
+        .education-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 80px;
+            width: 100%;
+        }
+
+        .education-item:nth-child(odd) .education-content {
+            margin-left: 0;
+            margin-right: 55%;
+            text-align: right;
+        }
+
+        .education-item:nth-child(even) .education-content {
+            margin-left: 55%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .education-content {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .education-content:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-item:nth-child(odd) .education-content::before {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid rgba(255, 255, 255, 0.95);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .education-item:nth-child(even) .education-content::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 20px solid rgba(255, 255, 255, 0.95);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .education-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .education-dot:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+        }
+
+        .education-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .education-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .education-subtitle {
+            color: #6366f1;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .education-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .education-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .education-detail-label {
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .education-description {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .education-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .education-tag {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .education-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .education-timeline::before {
+                left: 30px;
+            }
+
+            .education-item:nth-child(odd) .education-content,
+            .education-item:nth-child(even) .education-content {
+                margin-left: 70px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .education-item:nth-child(odd) .education-content::before,
+            .education-item:nth-child(even) .education-content::before {
+                left: -20px;
+                right: auto;
+                border-right: 20px solid rgba(255, 255, 255, 0.95);
+                border-left: none;
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+            }
+
+            .education-dot {
+                left: 30px;
+            }
+
+            .education-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="nav-container fixed top-0 w-full bg-white/90 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-3xl font-bold logo-text futuristic-font">
+                    GS
+                </div>
+                <div class="hidden md:flex space-x-1">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-gray-900 font-medium"><span class="nav-text">Home</span></a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900 font-medium"><span class="nav-text">About</span></a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900 font-medium"><span class="nav-text">Projects</span></a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-gray-900 font-medium"><span class="nav-text">Education</span></a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-gray-900 font-medium"><span class="nav-text">Skills</span></a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900 font-medium"><span class="nav-text">Contact</span></a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="mobile-nav-link block text-gray-700 hover:text-gray-900">Home</a>
+                <a href="#about" class="mobile-nav-link block text-gray-700 hover:text-gray-900">About</a>
+                <a href="#projects" class="mobile-nav-link block text-gray-700 hover:text-gray-900">Projects</a>
+                <a href="#education" class="mobile-nav-link block text-gray-700 hover:text-gray-900">Education</a>
+                <a href="#skills" class="mobile-nav-link block text-gray-700 hover:text-gray-900">Skills</a>
+                <a href="#contact" class="mobile-nav-link block text-gray-700 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center gradient-bg">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+               <div class="text-center lg:text-left text-white fade-in">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-title hero-font">
+                        <span class="   rotating-text futuristic-font text-5xl text-red-1000 drop-shadow-lg  ">Hi,</span> 
+                        <span class="glitch-text dynamic-text mx-2 hero-font text-2xl text-orange-300 drop-shadow-lg">I'm</span> 
+                        <br class="block md:hidden">
+                        <span class="  dynamic-text cyber-font text-green-300 drop-shadow-lg" data-text="Gagan Singh">Gagan Singh</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 hero-subtitle tech-font">
+                        <span class="rotating-text futuristic-font text-3xl text-cyan-600 drop-shadow-lg">Aspiring</span>
+                        <span class="glitch-text dynamic-text mx-2 hero-font text-2xl text-orange-300 drop-shadow-lg" data-text="Full-Stack Developer">Full-Stack Developer</span>
+                        <br class="md:hidden">
+                        <span class="wobble-text mx-2 stylish-font text-pink-300 drop-shadow-lg">ready to create</span>
+                        <span class="glitch-text dynamic-text mx-5 hero-font text-4xl text-orange-900 drop-shadow-lg">amazing digital experiences</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-buttons">
+                        <button onclick="scrollToSection('projects')" class="hero-button bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg">
+                            <span class="relative z-10">View My Work</span>
+                        </button>
+                        <button onclick="downloadResume()" class="hero-button bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-3 rounded-full font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 shadow-lg flex items-center gap-2 justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span class="relative z-10">Download Resume</span>
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="hero-button bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-lg">
+                            <span class="relative z-10">Get In Touch</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Developer Illustration -->
+                <div class="fade-in flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <!-- Main Developer SVG -->
+                        <div class="hero-image floating">
+                            <svg width="400" height="400" viewBox="0 0 400 400" class="drop-shadow-2xl">
+                      
+                                <!-- Background Circle -->
+                                <circle cx="200" cy="200" r="180" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                
+                                <!-- Desk -->
+                                <rect x="50" y="280" width="300" height="80" rx="10" fill="#8B4513" opacity="0.8"/>
+                                <rect x="50" y="275" width="300" height="10" rx="5" fill="#A0522D"/>
+                                
+                                <!-- Monitor -->
+                                <rect x="120" y="180" width="160" height="100" rx="8" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+                                <rect x="130" y="190" width="140" height="80" rx="4" fill="#1A202C"/>
+                                
+                                <!-- Code on Screen -->
+                                <rect x="135" y="195" width="60" height="4" rx="2" fill="#48BB78"/>
+                                <rect x="135" y="205" width="80" height="4" rx="2" fill="#4299E1"/>
+                                <rect x="145" y="215" width="70" height="4" rx="2" fill="#ED8936"/>
+                                <rect x="135" y="225" width="90" height="4" rx="2" fill="#9F7AEA"/>
+                                <rect x="145" y="235" width="50" height="4" rx="2" fill="#48BB78"/>
+                                <rect x="135" y="245" width="75" height="4" rx="2" fill="#4299E1"/>
+                                <rect x="135" y="255" width="85" height="4" rx="2" fill="#ED8936"/>
+                                
+                                <!-- Monitor Stand -->
+                                <rect x="185" y="280" width="30" height="20" rx="4" fill="#4A5568"/>
+                                <rect x="170" y="295" width="60" height="8" rx="4" fill="#2D3748"/>
+                                
+                                <!-- Keyboard -->
+                                <rect x="140" y="300" width="120" height="30" rx="6" fill="#E2E8F0" stroke="#CBD5E0" stroke-width="1"/>
+                                <rect x="145" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="156" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="167" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="178" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="189" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="200" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="211" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="222" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="233" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="244" y="305" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                
+                                <rect x="150" y="315" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="161" y="315" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="172" y="315" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="183" y="315" width="30" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="216" y="315" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="227" y="315" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                <rect x="238" y="315" width="8" height="6" rx="1" fill="#A0AEC0"/>
+                                
+                                <!-- Mouse -->
+                                <ellipse cx="280" cy="315" rx="12" ry="18" fill="#E2E8F0" stroke="#CBD5E0" stroke-width="1"/>
+                                <ellipse cx="280" cy="310" rx="3" ry="4" fill="#A0AEC0"/>
+                                
+                                <!-- Coffee Cup -->
+                                <ellipse cx="320" cy="295" rx="15" ry="12" fill="#8B4513"/>
+                                <ellipse cx="320" cy="290" rx="12" ry="10" fill="#D2691E"/>
+                                <ellipse cx="320" cy="288" rx="10" ry="8" fill="#F4A460"/>
+                                <path d="M 332 290 Q 340 290 340 295 Q 340 300 332 300" stroke="#8B4513" stroke-width="2" fill="none"/>
+                                
+                                <!-- Steam from coffee -->
+                                <path d="M 315 275 Q 317 270 315 265 Q 313 260 315 255" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="none" opacity="0.7"/>
+                                <path d="M 320 275 Q 322 270 320 265 Q 318 260 320 255" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="none" opacity="0.7"/>
+                                <path d="M 325 275 Q 327 270 325 265 Q 323 260 325 255" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="none" opacity="0.7"/>
+                                
+                                <!-- Books Stack -->
+                                <rect x="70" y="260" width="40" height="8" rx="2" fill="#4299E1"/>
+                                <rect x="70" y="250" width="35" height="8" rx="2" fill="#48BB78"/>
+                                <rect x="70" y="240" width="38" height="8" rx="2" fill="#ED8936"/>
+                                
+                                <!-- Plant -->
+                                <ellipse cx="85" cy="235" rx="8" ry="6" fill="#8B4513"/>
+                                <path d="M 85 235 Q 80 225 75 220 Q 70 215 75 210" stroke="#48BB78" stroke-width="3" fill="none"/>
+                                <path d="M 85 235 Q 90 225 95 220 Q 100 215 95 210" stroke="#48BB78" stroke-width="3" fill="none"/>
+                                <path d="M 85 235 Q 85 225 85 215 Q 85 210 90 205" stroke="#48BB78" stroke-width="3" fill="none"/>
+                                <ellipse cx="75" cy="215" rx="4" ry="6" fill="#68D391"/>
+                                <ellipse cx="95" cy="215" rx="4" ry="6" fill="#68D391"/>
+                                <ellipse cx="88" cy="208" rx="4" ry="6" fill="#68D391"/>
+                                
+                                <!-- Floating Code Elements -->
+                                <g opacity="0.7">
+                                    <rect x="60" y="120" width="30" height="4" rx="2" fill="rgba(255,255,255,0.8)"/>
+                                    <text x="65" y="135" fill="rgba(255,255,255,0.9)" font-size="12" font-family="monospace">&lt;/&gt;</text>
+                                </g>
+                                
+                                <g opacity="0.6">
+                                    <rect x="320" y="140" width="25" height="4" rx="2" fill="rgba(255,255,255,0.8)"/>
+                                    <text x="325" y="155" fill="rgba(255,255,255,0.9)" font-size="12" font-family="monospace">{}</text>
+                                </g>
+                                
+                                <g opacity="0.8">
+                                    <circle cx="350" cy="180" r="8" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+                                    <text x="346" y="185" fill="rgba(255,255,255,0.9)" font-size="10" font-family="monospace">JS</text>
+                                </g>
+                                
+                                <g opacity="0.7">
+                                    <circle cx="40" cy="160" r="8" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+                                    <text x="34" y="165" fill="rgba(255,255,255,0.9)" font-size="8" font-family="monospace">CSS</text>
+                                </g>
+                                
+                                <!-- Animated Cursor -->
+                                <g class="cursor-blink">
+                                    <polygon points="200,200 200,215 205,210" fill="rgba(255,255,255,0.9)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        
+                        <!-- Floating Tech Icons -->
+                        <div class="absolute top-10 left-10 floating-tech" style="animation-delay: 0.5s;">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-full p-3 text-2xl">⚛️</div>
+                        </div>
+                        <div class="absolute top-20 right-10 floating-tech" style="animation-delay: 1s;">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-full p-3 text-2xl">🐍</div>
+                        </div>
+                        <div class="absolute bottom-20 left-5 floating-tech" style="animation-delay: 1.5s;">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-full p-3 text-2xl">💻</div>
+                        </div>
+                        <div class="absolute bottom-10 right-5 floating-tech" style="animation-delay: 2s;">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-full p-3 text-2xl">🚀</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-4 stylish-font">About Me</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="w-80 h-80 mx-auto bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-full flex items-center justify-center pulse-glow floating">
+                        <div class="text-8xl bounce-in">👨‍💻</div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6">Passionate Fresher & Quick Learner</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        As a recent graduate with a strong foundation in computer science, I'm eager to start my journey in software development. I have hands-on experience with modern technologies through academic projects and personal learning. I'm passionate about clean code, problem-solving, and creating user-friendly applications.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        When I'm not coding, you'll find me learning new technologies, working on personal projects, and staying updated with the latest trends in web development.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Quick Learner</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Problem Solving</span>
+                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Team Player</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-4xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent mb-4 tech-font">Featured Projects</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="fade-in card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-pink-400 via-red-500 to-yellow-500 flex items-center justify-center floating">
+                        <div class="text-6xl bounce-in">🚀</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3"> Tic Tac Toe</h3>
+                        <p class="text-gray-600 mb-4"> A responsive Tic Tac Toe game with HTML, CSS and JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">HTML</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">CSS</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">JavaScript</span>
+                            
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="text-blue-600 hover:text-blue-800 font-medium"><a href="">Live Demo</a></button>
+                            <button class="text-gray-600 hover:text-gray-800 font-medium"><a href="https://github.com/GaganSingh0205/Tic-Tac-Toe">GitHub</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="fade-in card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 flex items-center justify-center floating">
+                        <div class="text-6xl bounce-in">📱</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-3">Ananta-Business-Services</h3>
+                        <p class="text-gray-600 mb-4">A responsive Ananta-Business-Services website showcasing my skills and projects, built with modern web technologies and featuring smooth animations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">HTML</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">CSS</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="text-blue-600 hover:text-blue-800 font-medium"><a href="">Live Demo</a></button>
+                            <button class="text-gray-600 hover:text-gray-800 font-medium"><a href="https://github.com/GaganSingh0205/Ananta-Business-Services-">GitHub</a></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="fade-in card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-violet-400 via-purple-500 to-indigo-500 flex items-center justify-center floating">
+                        <div class="text-6xl bounce-in">🤖</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent mb-3">Personal Portfolio Website</h3>
+                        <p class="text-gray-600 mb-4">Personal project - A responsive portfolio website showcasing my skills and projects, built with modern web technologies and featuring smooth animations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">HTML</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">CSS</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="text-blue-600 hover:text-blue-800 font-medium"><a href="http://127.0.0.1:5500/index.html">Live Demo</a></button>
+                            <button class="text-gray-600 hover:text-gray-800 font-medium"><a href="">GitHub</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-4xl font-bold bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 bg-clip-text text-transparent mb-4 stylish-font">Education Journey</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-6 text-lg">My academic path that shaped my technical foundation</p>
+            </div>
+            
+            <!-- Enhanced Education Timeline -->
+            <div class="education-timeline">
+                <!-- College Education -->
+                <div class="education-item fade-in">
+                    <div class="education-content">
+                        <div class="education-icon">
+                            🎓
+                        </div>
+                        <h3 class="education-title tech-font">Bachelor of Technology</h3>
+                        <p class="education-subtitle">Computer Science & Engineering</p>
+                        
+                        <div class="education-details">
+                            <div class="education-detail">
+                                <span class="education-detail-label">Institution:</span>
+                                <span>lloyd institute</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Duration:</span>
+                                <span>2022 - 2026</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">CGPA:</span>
+                                <span>8.5/10</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Location:</span>
+                                <span>Greater Noida, Uttar Pradesh</span>
+                            </div>
+                        </div>
+                        
+                        <p class="education-description">
+                            Completed comprehensive coursework in software engineering, data structures, algorithms, database management, and web technologies. Actively participated in coding competitions and technical workshops. Developed multiple projects including e-commerce platforms and management systems.
+                        </p>
+                        
+                        <div class="education-tags">
+                            <span class="education-tag bg-purple-100 text-purple-800">Data Structures & Algorithms</span>
+                            <span class="education-tag bg-blue-100 text-blue-800">Web Development</span>
+                            <span class="education-tag bg-green-100 text-green-800">Database Systems</span>
+                            <span class="education-tag bg-orange-100 text-orange-800">Software Engineering</span>
+                            <span class="education-tag bg-pink-100 text-pink-800">Object-Oriented Programming</span>
+                        </div>
+                    </div>
+                    <div class="education-dot"></div>
+                </div>
+                
+                <!-- 12th Education -->
+                <div class="education-item fade-in">
+                    <div class="education-content">
+                        <div class="education-icon">
+                            📚
+                        </div>
+                        <h3 class="education-title tech-font">Higher Secondary Education</h3>
+                        <p class="education-subtitle">Science Stream (Physics, Chemistry, Mathematics)</p>
+                        
+                        <div class="education-details">
+                            <div class="education-detail">
+                                <span class="education-detail-label">School:</span>
+                                <span>Dhumri Public School</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Board:</span>
+                                <span>CBSE</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Year:</span>
+                                <span>2021-2022</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Percentage:</span>
+                                <span>74%</span>
+                            </div>
+                        </div>
+                        
+                        <p class="education-description">
+                            Specialized in Science stream with focus on Physics, Chemistry, and Mathematics. Developed strong analytical thinking and problem-solving skills. Participated in science exhibitions and mathematics olympiads, laying the foundation for logical reasoning essential in programming.
+                        </p>
+                        
+                        <div class="education-tags">
+                            <span class="education-tag bg-blue-100 text-blue-800">Advanced Mathematics</span>
+                            <span class="education-tag bg-green-100 text-green-800">Physics</span>
+                            <span class="education-tag bg-purple-100 text-purple-800">Chemistry</span>
+                            <span class="education-tag bg-orange-100 text-orange-800">Analytical Thinking</span>
+                        </div>
+                    </div>
+                    <div class="education-dot"></div>
+                </div>
+                
+                <!-- 10th Education -->
+                <div class="education-item fade-in">
+                    <div class="education-content">
+                        <div class="education-icon">
+                            🏫
+                        </div>
+                        <h3 class="education-title tech-font">Secondary School Education</h3>
+                        <p class="education-subtitle">All Subjects with Excellence</p>
+                        
+                        <div class="education-details">
+                            <div class="education-detail">
+                                <span class="education-detail-label">School:</span>
+                                <span>N.S.S.V Inter collage</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Board:</span>
+                                <span>U.P Board</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Year:</span>
+                                <span>2019-2020</span>
+                            </div>
+                            <div class="education-detail">
+                                <span class="education-detail-label">Percentage:</span>
+                                <span>78%</span>
+                            </div>
+                        </div>
+                        
+                        <p class="education-description">
+                            Achieved excellent academic performance across all subjects with particular strength in Mathematics and Science. Developed fundamental concepts in logical reasoning and systematic problem-solving. Actively participated in school competitions and extracurricular activities.
+                        </p>
+                        
+                        <div class="education-tags">
+                            <span class="education-tag bg-emerald-100 text-emerald-800">Mathematics</span>
+                            <span class="education-tag bg-blue-100 text-blue-800">Science</span>
+                            <span class="education-tag bg-purple-100 text-purple-800">English</span>
+                            <span class="education-tag bg-orange-100 text-orange-800">Social Studies</span>
+                        </div>
+                    </div>
+                    <div class="education-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-4xl font-bold bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 bg-clip-text text-transparent mb-4 futuristic-font">Skills & Technologies</h2>
+                <div class="w-20 h-1 gradient-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-8 tech-font">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-orange-600 font-medium">HTML</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-blue-600 font-medium">CSS</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-cyan-500 h-3 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-yellow-600 font-medium">JavaScript</span>
+                                <span class="text-gray-600">75%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-yellow-500 to-orange-500 h-3 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-cyan-600 font-medium">React</span>
+                                <span class="text-gray-600">70%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full" style="width: 0%" data-width="70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-purple-600 font-medium">PHP</span>
+                                <span class="text-gray-600">72%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-purple-500 to-indigo-500 h-3 rounded-full" style="width: 0%" data-width="72%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-green-600 font-medium">Python</span>
+                                <span class="text-gray-600">68%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-green-500 to-teal-500 h-3 rounded-full" style="width: 0%" data-width="68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent mb-8 tech-font">Additional Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-emerald-600 font-medium">Node.js</span>
+                                <span class="text-gray-600">65%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-green-600 to-emerald-500 h-3 rounded-full" style="width: 0%" data-width="65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-indigo-600 font-medium">MySQL</span>
+                                <span class="text-gray-600">70%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-600 to-indigo-600 h-3 rounded-full" style="width: 0%" data-width="70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-teal-600 font-medium">MongoDB</span>
+                                <span class="text-gray-600">60%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-green-700 to-teal-600 h-3 rounded-full" style="width: 0%" data-width="60%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-slate-600 font-medium">C</span>
+                                <span class="text-gray-600">75%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-gray-600 to-slate-600 h-3 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-violet-600 font-medium">C++</span>
+                                <span class="text-gray-600">72%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-gradient-to-r from-blue-700 to-purple-700 h-3 rounded-full" style="width: 0%" data-width="72%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-6 text-center text-white">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-4 cyber-font bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">Let's Work Together</h2>
+                <p class="text-xl mb-12 opacity-90 tech-font">
+                    Have a project in mind? I'd love to hear about it and discuss how we can bring your ideas to life.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">📧</div>
+                        <h3 class="text-blac-700 font-semibold mb-2 text-yellow-300">Email</h3>
+                        <p class="opacity-90">gagansingh08920@gmail.com</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">💼</div>
+                        <h3 class="text-black-700 font-semibold mb-2 text-blue-800"><a href="https://www.linkedin.com/in/gagan-singh-635b3b364/">linkedin</a></h3>
+                        
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🐙</div>
+                        <h3 class="text-blac-700 font-semibold mb-2 text-purple-800"><a href="https://github.com/GaganSingh0205">GitHub</a></h3>
+                        <p class="opacity-90">github.com/gagansingh</p>
+                    </div>
+                </div>
+                <button onclick="openContactForm()" class="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                    Send Message
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="opacity-75">© 2025 Gagan Singh. Built with passion and lots of coffee ☕</p>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Get In Touch</h3>
+                <button onclick="closeContactForm()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label class="block text-blac-700 font-medium mb-2">Name</label>
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                </div>
+                <div>
+                    <label class="block text-black-700 font-medium mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                </div>
+                <div>
+                    <label class="block text-black-700 font-medium mb-2">Message</label>
+                    <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required></textarea>
+                </div>
+                <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Resume download function
+        function downloadResume() {
+            // Create a demo resume download
+            const link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,This is a demo resume file for Gagan Singh.\n\nIn a real portfolio, this would link to your actual resume PDF file.\n\nContact: gagan.singh@email.com\nLinkedIn: linkedin.com/in/gagansingh\nGitHub: github.com/gagansingh';
+            link.download = 'c:\Users\hp\Downloads\Gagan_Singh_Resume (3).pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show a notification
+            alert('Resume downloaded! In a real portfolio, this would download your actual PDF resume.');
+        }
+
+        // Mobile menu toggle with animation
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            
+            // Add animation class after showing
+            setTimeout(() => {
+                mobileMenu.classList.toggle('show');
+            }, 10);
+        });
+
+        // Fade in animation on scroll
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Skill bar animations
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                }
+            });
+        }
+
+        // Active navigation link with enhanced animations
+        function updateActiveNavLink() {
+            const sections = ['home', 'about', 'projects', 'education', 'skills', 'contact'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            sections.forEach((sectionId, index) => {
+                const section = document.getElementById(sectionId);
+                const rect = section.getBoundingClientRect();
+                
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLinks[index]) {
+                        navLinks[index].classList.add('active');
+                    }
+                }
+            });
+        }
+
+        // Navigation background change on scroll
+        function updateNavBackground() {
+            const nav = document.querySelector('.nav-container');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+
+        // Contact form functions
+        function openContactForm() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+        }
+
+        function closeContactForm() {
+            document.getElementById('contact-modal').classList.add('hidden');
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form - in a real portfolio, this would send your message.');
+            closeContactForm();
+            this.reset();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('contact-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactForm();
+            }
+        });
+
+        // Scroll event listeners
+        window.addEventListener('scroll', function() {
+            handleScrollAnimations();
+            animateSkillBars();
+            updateActiveNavLink();
+            updateNavBackground();
+        });
+
+        // Initial load animations
+        window.addEventListener('load', function() {
+            handleScrollAnimations();
+            
+            // Typing animation
+            const typingElement = document.querySelector('.typing-animation');
+            if (typingElement) {
+                setTimeout(() => {
+                    typingElement.classList.remove('typing-animation');
+                }, 3000);
+            }
+        });
+
+        // Navigation link clicks with enhanced animations
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.remove('show');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a39bee661759cf',t:'MTc1NzA1MzEwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
